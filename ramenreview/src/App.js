@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import 'fontsource-roboto';
+
+import { BrowserRouter, Switch, Route } from "react-router-dom";
+
+import HomePage from "./components/home/HomePage";
+import AboutPage from "./components/about/AboutPage";
+import RamenPage from "./components/ramen/RamenPage";
+import TopTenPage from "./components/topten/TopTenPage";
+import Navbar from "./components/common/Navbar";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid">
+      <Navbar />
+
+      <br />
+
+      <Switch>
+        <Route path="/" component={HomePage} exact />
+        <Route path="/about" component={AboutPage} />
+        <Route path="/ramen" component={RamenPage} />
+        <Route path="/top" component={TopTenPage} />
+      </Switch>
     </div>
   );
 }
